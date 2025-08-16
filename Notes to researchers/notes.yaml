@@ -1,0 +1,41 @@
+NOTES TO RESEARCHERS
+
+This experiment trains a YOLOv8n model on crop disease images (maize classes).  
+The objective is to benchmark the viability of computer vision for field-level crop diagnostics.
+
+1. Dataset
+   - Source: Curated crop_data folder on Google Drive
+   - Classes (4):
+       0: Maize Blight
+       1: Maize Rust
+       2: Maize Gray Leaf Spot
+       3: Maize Healthy
+   - Split:
+       train/   (images + labels)
+       val/     (images + labels)
+       test/    (images + labels)
+
+2. Training Environment
+   - Google Colab with GPU runtime
+   - ultralytics v8 (YOLOv8n pretrained backbone)
+   - PyTorch with CUDA acceleration
+
+3. Training Parameters
+   - Model: yolov8n.pt (pretrained)
+   - Epochs: 50
+   - Image size: 640 × 640
+   - Batch size: 16
+   - Workers: 2
+   - Run name: train_crops
+
+4. Outputs
+   - Training logs in /runs/detect/train_crops
+   - Metrics: precision, recall, mAP50, mAP50-95
+   - Best weights: best.pt (auto-saved)
+   - Last weights: last.pt
+
+5. Next Steps
+   - Evaluate on held-out test set
+   - Compare lightweight YOLOv8n with larger variants (YOLOv8s/m)
+   - Investigate augmentation strategies to improve robustness
+   - Document per-class performance

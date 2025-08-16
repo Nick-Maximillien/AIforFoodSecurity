@@ -1,0 +1,10 @@
+# Ignore dataset images
+/images/
+/crop_data(labeled data)/
+/crop_data(raw data)/
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
